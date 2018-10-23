@@ -20,16 +20,16 @@
       </div>
 
       <!--很多图片轮播-->
-  <div class="thing_imgs">
-    <ul class="list">
-      <li class="item">
-        <img src="" alt="img">
-        <div class="text">
-          <span>严选推荐</span>
-        </div>
-      </li>
-    </ul>
-  </div>
+      <div class="thing_imgs">
+        <ul class="list">
+          <li class="item">
+            <img src="" alt="img">
+            <div class="text">
+              <span>严选推荐</span>
+            </div>
+          </li>
+        </ul>
+      </div>
 
       <Split></Split>
 
@@ -81,7 +81,7 @@
 
       <Split></Split>
 
-<!--十点一刻-->
+      <!--十点一刻-->
       <div class="shidian">
         <header class="hd">
           <span>十点一刻</span>
@@ -106,21 +106,61 @@
         <div class="z_top">
           <img src="" alt="">
           <div class="content">
-
+            <div class="text1">严选原创设计系列</div>
+            <div class="text2">用设计点亮生活的光</div>
           </div>
         </div>
 
-        <div class="bottomsImmgss1">
-          <div class="top1"></div>
-          <div class="bottom1"></div>
-        </div>
-        <div class="bottomsImmgss2">
-          <div class="top2"></div>
-          <div class="bottom2"></div>
+        <div class="bottomsImmgss">
+          <div class="top1">
+            <div class="left1">
+              <div class="txt1">严选按摩器</div>
+              <div class="txt2">揭开每一款</div>
+            </div>
+            <div class="right1">
+              <img src="" alt="">
+            </div>
+          </div>
+
+          <div class="bottom1">
+            <div class="left2">
+              <div class="txt1">严选按摩器</div>
+              <div class="txt2">揭开每一款</div>
+            </div>
+            <div class="right2">
+              <img src="" alt="">
+            </div>
+          </div>
         </div>
 
       </div>
+      <Split></Split>
 
+      <!--严选LOOK-->
+      <div class="T_look">
+        <img src="" alt="">
+        <div class="content">
+
+        </div>
+      </div>
+      <!--更多精彩 整个背景为灰色-->
+      <div class="T_more">
+        <div class="line"></div>
+        <div class="txtM">更多精彩</div>
+      </div>
+      <!--多个重复的 整个背景为灰色-->
+      <div class="T_manyBigImg">
+        <div class="T_wrapImg">
+          <div class="T_mImg">
+            <img src="" alt="">
+            <div class="txt">
+              严选原创设计
+            </div>
+          </div>
+          <Split></Split>
+        </div>
+
+      </div>
     </div>
 
 
@@ -129,6 +169,7 @@
 
 <script>
   import BScroll from 'better-scroll';
+
   export default {
     data() {
       return {}
@@ -136,7 +177,7 @@
     mounted() {
       let bannerScroll = new BScroll('.banner', {
         click: true,//会派发点击事件 新品首发
-        scrollX:true
+        scrollX: true
       });
 
     }
@@ -155,13 +196,12 @@
         width 29rem
         .item
           float left
-          padding  .2rem
+          padding .2rem
           box-sizing border-box
           img
             width 670px
             height 385px
             border-radius .2rem
-
 
 
 </style>

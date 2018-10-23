@@ -419,12 +419,21 @@
 
   import Swiper from 'swiper';
   import BScroll from 'better-scroll';
+  import {mapState} from 'vuex'
 
   export default {
     data() {
-      return {}
+      return {
+      }
+    },
+    computed:{
+      ...mapState(['msiteData'])
     },
     mounted() {
+      this.$store.dispatch('getMsiteData',() =>{
+        this.$nextTick(()=>{})
+      });
+
       let mySwiper = new Swiper('.swiper-container', {
         loop: true, // 循环模式选项
         pagination: { // 如果需要分页器
