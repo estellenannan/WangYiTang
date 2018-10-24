@@ -1,6 +1,14 @@
 <template>
   <div>
-    <HeaderTop></HeaderTop>
+
+
+    <div class="mailTop">
+
+
+    </div>
+
+    <ButtonRed :redBtnName="'下一步'"></ButtonRed>
+
   </div>
 </template>
 

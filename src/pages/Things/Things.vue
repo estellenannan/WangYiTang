@@ -177,7 +177,9 @@
     mounted() {
       let bannerScroll = new BScroll('.banner', {
         click: true,//会派发点击事件 新品首发
-        scrollX: true
+        scrollX: true,
+       /* snapLoop: true,//是否可以无缝循环轮播
+        bounce: true //是否启用回弹动画效果*/
       });
 
     }

@@ -11,7 +11,11 @@ import Classify from '../pages/Classify/Classify.vue'
 import ShopCart from '../pages/ShopCart/ShopCart.vue'
 import Profile from '../pages/Profile/Profile.vue'
 
-import Login from '../pages/Login/Login.vue'
+import PhoneLogin from '../pages/PhoneLogin/PhoneLogin.vue';
+import PhoneRegist from '../pages/PhoneRegist/PhoneRegist.vue';
+import MailLogin from '../pages/MailLogin/MailLogin.vue';
+import MailRegist from '../pages/MailRegist/MailRegist.vue';
+
 
 Vue.use(VueRouter);
 
@@ -49,13 +53,22 @@ export default new VueRouter ({
     {
       path: '/profile',
       component: Profile,
-      // meta: {
-      //   showFooter: true
-      // }
     },
     {
-      path: '/login',
-      component: Login
+      path: '/phonelogin',
+      component: PhoneLogin,
+    },
+    {
+      path: '/phoneregist',
+      component: PhoneRegist,
+    },
+    {
+      path: '/maillogin',
+      component: MailLogin,
+    },
+    {
+      path: '/mailregist',
+      component: MailRegist,
     },
     {//默认的根路由为首页路由
       path: '/',

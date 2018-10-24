@@ -34,10 +34,12 @@
     background #FAFAFA
     height 1rem
     padding 0.1rem 0.2rem
-    box-sizing border-box
     .headerTop_ul
       clearFix()
       display flex
+      li
+        display inline-block
+        padding-bottom .3rem
       .secondLi
         display flex
         justify-content center

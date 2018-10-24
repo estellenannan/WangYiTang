@@ -15,16 +15,10 @@
 
         <!--11个词语长屏滑动-->
         <div class="hdScorllX" >
-          <div class="hdScorllItem">
-            <span class="active" >推荐</span>
-            <span>推荐</span>
-            <span>推荐</span>
-            <span>推荐</span>
-            <span>推荐</span>
-            <span>推荐</span>
-            <span>推荐</span>
-            <span>推荐</span>
-            <span>推荐</span>
+          <div class="list">
+            <div class="hdScorllItem" v-for="(headCate,index) in msiteData.headCateList" :key="index">
+              <span :class="{active:current===index}" @click="currentIndex(index)">{{headCate.name}}</span>
+            </div>
           </div>
         </div>
 
@@ -56,22 +50,10 @@
         <!--轮播图下面的3个服务-->
         <div class="msite_indexServicePolicy">
           <ul class="msite_ulService">
-            <li>
+            <li v-for="(service,index) in msiteData.policyDescList" :key="index">
               <a href="javascript:;">
                 <i class="iconfont icon-heart"></i>
-                <span>网易自营品牌</span>
-              </a>
-            </li>
-            <li>
-              <a href="javascript:;">
-                <i class="iconfont icon-heart"></i>
-                <span>30天无忧退款</span>
-              </a>
-            </li>
-            <li>
-              <a href="javascript:;">
-                <i class="iconfont icon-heart"></i>
-                <span>48小时快速退款</span>
+                <span>{{service.desc}}</span>
               </a>
             </li>
 
@@ -89,51 +71,18 @@
           </header>
 
           <div class="m_pinpaiMain">
-            <ul class="m_pinpaiMainUl">
-              <li class="item">
+            <ul class="m_pinpaiMainUl" v-if="spPinpai">
+              <li class="item" :key="index"
+                  v-for="(tagPinpai,index) in spPinpai">
                 <a href="javascript:;">
                   <div class="content">
-                    <h4>海外制造商</h4>
+                    <h4>{{tagPinpai.name}}</h4>
                     <div class="text">
-                      <span>9.9元起</span>
+                      <span>{{tagPinpai.floorPrice}}元起</span>
                     </div>
                     <span>上新</span>
                   </div>
-                  <img src="./images/yanxuan.png" alt="img">
-                </a>
-              </li>
-              <li class="item">
-                <a href="javascript:;">
-                  <div class="content">
-                    <h4>海外制造商</h4>
-                    <div class="text">
-                      <span>9.9元起</span>
-                    </div>
-                    <span>上新</span>
-                  </div>
-                  <img src="./images/yanxuan7.png" alt="img">
-                </a>
-              </li>
-              <li class="item">
-                <a href="javascript:;">
-                  <div class="content">
-                    <h4>海外制造商</h4>
-                    <div class="text">
-                      <span>9.9元起</span>
-                    </div>
-                  </div>
-                  <img src="./images/yanxuan8.png" alt="img">
-                </a>
-              </li>
-              <li class="item">
-                <a href="javascript:;">
-                  <div class="content">
-                    <h4>海外制造商</h4>
-                    <div class="text">
-                      <span>9.9元起</span>
-                    </div>
-                  </div>
-                  <img src="./images/yanxuan9.png" alt="img">
+                  <img :src="tagPinpai.appListPicUrl" alt="img">
                 </a>
               </li>
             </ul>
@@ -158,67 +107,20 @@
           <!--横屏滑动-->
           <div class="m_goodGrid">
               <ul class="xinpin_wrap">
-                <li class="item">
+                <li class="item" :key="index"
+                    v-for="( newItem,index) in msiteData.newItemList">
                   <a href="javascript:;" class="good">
                     <div class="hd">
-                      <img src="./images/yanxuan2.png" alt="img">
+                      <img :src="newItem.listPicUrl" alt="img">
                     </div>
                     <div class="name">
-                      <span>网易智造低压海盐热敷腰带</span>
+                      <span>{{newItem.name}}</span>
                     </div>
                     <div class="jiesao">
-                      <span>古法热敷，研磨艾绒，专业的身体调理</span>
+                      <span>{{newItem.simpleDesc}}</span>
                     </div>
                     <div class="price">
-                      <span>￥199</span>
-                    </div>
-                  </a>
-                </li>
-                <li class="item">
-                  <a href="javascript:;" class="good">
-                    <div class="hd">
-                      <img src="./images/yanxuan2.png" alt="img">
-                    </div>
-                    <div class="name">
-                      <span>网易智造低压海盐热敷腰带</span>
-                    </div>
-                    <div class="jiesao">
-                      <span>古法热敷，研磨艾绒，专业的身体调理</span>
-                    </div>
-                    <div class="price">
-                      <span>￥199</span>
-                    </div>
-                  </a>
-                </li>
-                <li class="item">
-                  <a href="javascript:;" class="good">
-                    <div class="hd">
-                      <img src="./images/yanxuan2.png" alt="img">
-                    </div>
-                    <div class="name">
-                      <span>网易智造低压海盐热敷腰带</span>
-                    </div>
-                    <div class="jiesao">
-                      <span>古法热敷，研磨艾绒，专业的身体调理</span>
-                    </div>
-                    <div class="price">
-                      <span>￥199</span>
-                    </div>
-                  </a>
-                </li>
-                <li class="item">
-                  <a href="javascript:;" class="good">
-                    <div class="hd">
-                      <img src="./images/yanxuan2.png" alt="img">
-                    </div>
-                    <div class="name">
-                      <span>网易智造低压海盐热敷腰带</span>
-                    </div>
-                    <div class="jiesao">
-                      <span>古法热敷，研磨艾绒，专业的身体调理</span>
-                    </div>
-                    <div class="price">
-                      <span>￥199</span>
+                      <span>￥{{newItem.retailPrice}}</span>
                     </div>
                   </a>
                 </li>
@@ -265,33 +167,17 @@
 
           <div class="zhuanti_wrap">
             <ul class="list">
-              <li class="item">
-                <img src="./images/yanxuan4.jpg" alt="img">
+              <li class="item" :key="index"
+                  v-for="(topicZhuanti,index) in msiteData.topicList">
+                <img :src="topicZhuanti.itemPicUrl" alt="img">
                 <div class="top">
-                  <span>今年女鞋更好穿的秘密</span>
+                  <span>{{topicZhuanti.title}}</span>
                 </div>
                 <div class="bottom">
-                  <span>各位小仙女在网上买鞋时，一定会有这样的经历吧：有些鞋子样子好看，但买回去却硬到磨...</span>
+                  <span>{{topicZhuanti.subtitle}}</span>
                 </div>
               </li>
-              <li class="item">
-                <img src="./images/yanxuan4.jpg" alt="img">
-                <div class="top">
-                  <span>今年女鞋更好穿的秘密</span>
-                </div>
-                <div class="bottom">
-                  <span>各位小仙女在网上买鞋时，一定会有这样的经历吧：有些鞋子样子好看，但买回去却硬到磨...</span>
-                </div>
-              </li>
-              <li class="item">
-                <img src="./images/yanxuan4.jpg" alt="img">
-                <div class="top">
-                  <span>今年女鞋更好穿的秘密</span>
-                </div>
-                <div class="bottom">
-                  <span>各位小仙女在网上买鞋时，一定会有这样的经历吧：有些鞋子样子好看，但买回去却硬到磨...</span>
-                </div>
-              </li>
+
             </ul>
           </div>
 
@@ -299,113 +185,38 @@
         <Split></Split>
 
         <!--居家好物-->
-        <div class="jujia">
-          <header class="hdju">
-            <span>居家好物</span>
-          </header>
-          <div class="content">
-            <ul class="list">
-              <li class="item">
-                <img src="./images/yanxuan5.png" alt="img">
-                <div class="top">
-                  <span>浅绒如脂臻密，高级莫兰迪色系</span>
-                </div>
-                <div class="middle">
-                  <span>60s臻密绒磨毛四件套</span>
-                </div>
-                <div class="bottom">
-                  <span>￥499</span>
-                </div>
-              </li>
-              <li class="item">
-                <img src="./images/yanxuan5.png" alt="img">
-                <div class="top">
-                  <span>浅绒如脂臻密，高级莫兰迪色系</span>
-                </div>
-                <div class="middle">
-                  <span>60s臻密绒磨毛四件套</span>
-                </div>
-                <div class="bottom">
-                  <span>￥499</span>
-                </div>
-              </li>
-              <li class="item">
-                <img src="./images/yanxuan5.png" alt="img">
-                <div class="top">
-                  <span>浅绒如脂臻密，高级莫兰迪色系</span>
-                </div>
-                <div class="middle">
-                  <span>60s臻密绒磨毛四件套</span>
-                </div>
-                <div class="bottom">
-                  <span>￥499</span>
-                </div>
-              </li>
-              <li class="item">
-                <img src="./images/yanxuan5.png" alt="img">
-                <div class="top">
-                  <span>浅绒如脂臻密，高级莫兰迪色系</span>
-                </div>
-                <div class="middle">
-                  <span>60s臻密绒磨毛四件套</span>
-                </div>
-                <div class="bottom">
-                  <span>￥499</span>
-                </div>
-              </li>
-              <li class="item">
-                <img src="./images/yanxuan5.png" alt="img">
-                <div class="top">
-                  <span>浅绒如脂臻密，高级莫兰迪色系</span>
-                </div>
-                <div class="middle">
-                  <span>60s臻密绒磨毛四件套</span>
-                </div>
-                <div class="bottom">
-                  <span>￥499</span>
-                </div>
-              </li>
-              <li class="item">
-                <img src="./images/yanxuan5.png" alt="img">
-                <div class="top">
-                  <span>浅绒如脂臻密，高级莫兰迪色系</span>
-                </div>
-                <div class="middle">
-                  <span>60s臻密绒磨毛四件套</span>
-                </div>
-                <div class="bottom">
-                  <span>￥499</span>
-                </div>
-              </li>
-              <li class="item">
-              <img src="./images/yanxuan5.png" alt="img">
-              <div class="top">
-                <span>浅绒如脂臻密，高级莫兰迪色系</span>
-              </div>
-              <div class="middle">
-                <span>60s臻密绒磨毛四件套</span>
-              </div>
-              <div class="bottom">
-                <span>￥499</span>
-              </div>
-            </li>
-              <li class="item">
-                <img src="./images/yanxuan5.png" alt="img">
-                <div class="top">
-                  <span>浅绒如脂臻密，高级莫兰迪色系</span>
-                </div>
-                <div class="middle">
-                  <span>60s臻密绒磨毛四件套</span>
-                </div>
-                <div class="bottom">
-                  <span>￥499</span>
-                </div>
-              </li>
-            </ul>
-          </div>
+       <div class="m_jujia">
+         <div class="jujia" :key="index"
+              v-for="(cateJujia,index) in msiteData.cateList">
+           <header class="hdju">
+             <span>{{cateJujia.name}}</span>
+           </header>
+
+           <div class="content">
+             <ul class="list">
+               <li class="item" :key="index"
+                   v-for="(ItemJujia,index) in cateJujia.itemList"
+               >
+                 <img :src="ItemJujia.listPicUrl" alt="img">
+                 <div class="top">
+                   <span>{{ItemJujia.simpleDesc}}</span>
+                 </div>
+                 <div class="middle">
+                   <span>{{ItemJujia.name}}</span>
+                 </div>
+                 <div class="bottom">
+                   <span>￥{{ItemJujia.retailPrice}}</span>
+                 </div>
+               </li>
+             </ul>
+           </div>
+           <div class="line">
+
+           </div>
+         </div>
+       </div>
 
 
-        </div>
         <Split></Split>
 
       </div>
@@ -419,42 +230,61 @@
 
   import Swiper from 'swiper';
   import BScroll from 'better-scroll';
-  import {mapState} from 'vuex'
+  import {mapState,mapGetters} from 'vuex'
 
   export default {
     data() {
       return {
+        current:0,//这是11个长词语的默认值
       }
     },
     computed:{
-      ...mapState(['msiteData'])
+      ...mapState(['msiteData']),
+      ...mapGetters(['spPinpai'])
     },
     mounted() {
       this.$store.dispatch('getMsiteData',() =>{
-        this.$nextTick(()=>{})
+        this.$nextTick(()=>{
+          let BScrollCiyu = new BScroll('.hdScorllX', {
+            click: true,//会派发点击事件 词语
+            scrollX:true
+          });
+        })
       });
 
-      let mySwiper = new Swiper('.swiper-container', {
-        loop: true, // 循环模式选项
-        pagination: { // 如果需要分页器
-          el: '.swiper-pagination',
-        },
-      });
-      let BScrollCiyu = new BScroll('.hdScorllX', {
-        click: true,//会派发点击事件 词语
-        scrollX:true
-      });
 
-      let zhuantiWrap = new BScroll('.zhuanti_wrap', {
-        click: true,//会派发点击事件 专题
-        scrollX:true
-      });
-      let xinpinWrap = new BScroll('.m_goodGrid', {
-        click: true,//会派发点击事件 新品首发
-        scrollX:true
-      });
+
+
+
+    },
+    watch:{
+      msiteData(value){
+        this.$nextTick(()=>{
+          let xinpinWrap = new BScroll('.m_goodGrid', {
+            click: true,//会派发点击事件 新品首发
+            scrollX:true
+          });
+          let lunBoSwiper = new Swiper('.swiper-container', {
+            loop: true, // 循环模式选项  //轮播图
+            pagination: { // 如果需要分页器
+              el: '.swiper-pagination',
+            },
+          });
+          let zhuantiWrap = new BScroll('.zhuanti_wrap', {
+            click: true,//会派发点击事件 专题
+            scrollX:true
+          });
+        })
+
+      }
+    },
+    methods:{
+      currentIndex(index){
+        this.current=index;//词语的点击事件
+      }
 
     }
+
   }
   /*#b4282d*/
 </script>
@@ -476,7 +306,7 @@
       background #ffffff
       width 100%
       box-sizing border-box
-      height 2rem
+      /*height 2rem*/
       .msite_header
         width 100%
         /*height 1.1rem*/
@@ -511,23 +341,29 @@
         overflow hidden
         background #ffffff
         display flex
-        .hdScorllItem
+        .list
           display flex
-          justify-content space-between
-          align-items center
-          span
-            width 1rem
-            text-align center
+          flex-shrink 0
+          flex-flow row nowrap
+          .hdScorllItem
+            display flex
+            justify-content space-between
+            align-items center
             flex-shrink 0
-            flex-wrap nowrap
-            font-size .45rem
-            padding 0 .6rem
-            &.active
-              padding 0 0 0.15rem 0
-              border-bottom 3px solid #b4282d
-              color #b4282d
+            span
+              /*width 1.1rem*/
+              text-align center
+              flex-shrink 0
+              flex-wrap nowrap
+              font-size .4rem
+              margin 0 .7rem
+              border-bottom 3px solid #ffffff
+              padding 0 0 0.1rem 0
+              &.active
+                border-bottom 3px solid #b4282d
+                color #b4282d
     .msite_content
-      margin-top 150px
+      margin-top 123px
       .msite_nav
         /*bottom-border-1px(#e4e4e4)*/
         height 400px
@@ -577,16 +413,20 @@
               display inline-block;
               position relative
               margin-bottom .10667rem
-              width 4.73333rem
+              width 4.2rem
               height 3.14667rem
               overflow hidden
               background-color #f4f4f4
-              margin-right -.15rem
+              /*margin-right -.15rem*/
               box-sizing border-box
               &:nth-child(1)
-                margin-left .1rem
+                margin-left .5rem
               &:nth-child(3)
-                margin-left .1rem
+                margin-left .5rem
+              &:nth-child(2)
+                margin-left .5rem
+              &:nth-child(4)
+                margin-left .5rem
               a
                 width 100%
                 height 100%
@@ -598,6 +438,9 @@
                   padding .26667rem 0 0 .26667rem
                   width 100%
                   z-index 4
+                  font-weight bold
+                  color grey
+                  box-sizing border-box
                   h4
                     margin-bottom .1rem
                   .text
@@ -673,6 +516,9 @@
                 .jiesao
                   font-size .4rem
                   margin-bottom .1rem
+                  white-space nowrap
+                  text-overflow ellipsis
+                  overflow hidden
                   span
                     display inline-block
                     width 3.73333rem
@@ -753,9 +599,15 @@
               width 7.66667rem
               margin-left .3rem
               box-sizing border-box
+              img
+                width 575px
+                height 322px
               .top
                 font-size .5rem
                 margin-bottom -.3rem
+                overflow hidden
+                white-space nowrap
+                text-overflow ellipsis
               .bottom
                 display inline-block
                 width 100%
@@ -765,47 +617,58 @@
                 white-space nowrap
                 text-overflow ellipsis
 
-      .jujia
-        width 100%
-        .hdju
-          height 1rem
-          line-height 1rem
-          font-size .5rem
-          text-align center
-        .content
+      .m_jujia
+        margin-bottom .3rem
+        /*border-bottom .3rem  solid lightgrey*/
+        .jujia
           width 100%
-          .list
+          .hdju
+            height 1rem
+            line-height 1rem
+            font-size .5rem
+            text-align center
+            background #ffffff
+          .content
             width 100%
-            clearFix()
-            height 520px
-            .item
-              width 50%
-              padding-left .2rem
-              box-sizing border-box
-              overflow hidden
-              float left
-              img
-                width 345px
-                height 345px
-              .top
-                font-size .4rem
-                white-space nowrap
-                text-overflow ellipsis
+            .list
+              width 100%
+              clearFix()
+              height 520px
+              .item
+                width 50%
+                padding-left .2rem
+                box-sizing border-box
                 overflow hidden
-                background #F1ECE2
-                width 345px
-                text-align center
-                line-height 1rem
-                height 1rem
-                margin-bottom .1rem
-                color #9F8A60
-              .middle
-                font-size .45rem
-                margin-bottom .1rem
-              .bottom
-                color #b4282d
-                font-size .45rem
-                margin-bottom .1rem
+                float left
+                img
+                  width 345px
+                  height 345px
+                  background-color #f4f4f4
+                .top
+                  font-size .4rem
+                  white-space nowrap
+                  text-overflow ellipsis
+                  overflow hidden
+                  background #F1ECE2
+                  width 345px
+                  text-align center
+                  line-height 1rem
+                  height 1rem
+                  margin-bottom .1rem
+                  color #9F8A60
+                .middle
+                  font-size .45rem
+                  margin-bottom .1rem
+                  overflow hidden
+                  white-space nowrap
+                  text-overflow ellipsis
+                .bottom
+                  color #b4282d
+                  font-size .45rem
+                  margin-bottom .1rem
 
+          .line
+            height  20px
+            background-color #f4f4f4
 
 </style>
