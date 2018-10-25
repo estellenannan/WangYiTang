@@ -29,17 +29,9 @@
         <div class="msite_nav">
           <div class="swiper-container">
             <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <img src="./images/1.jpg" alt="lunbo">
-              </div>
-              <div class="swiper-slide">
-                <img src="./images/3.jpg" alt="lunbo">
-              </div>
-              <div class="swiper-slide">
-                <img src="./images/4.jpg" alt="lunbo">
-              </div>
-              <div class="swiper-slide">
-                <img src="./images/7.jpg" alt="lunbo">
+              <div class="swiper-slide" :key="index"
+              v-for="(foucsPic,index) in msiteData.focusList">
+                <img :src="foucsPic.picUrl" alt="lunbo">
               </div>
             </div>
             <!-- 如果需要分页器 -->
@@ -80,9 +72,8 @@
                     <div class="text">
                       <span>{{tagPinpai.floorPrice}}元起</span>
                     </div>
-                    <span>上新</span>
                   </div>
-                  <img :src="tagPinpai.appListPicUrl" alt="img">
+                  <img :src="tagPinpai.picUrl" alt="img">
                 </a>
               </li>
             </ul>
@@ -379,7 +370,7 @@
               height 100%
               img
                 width 100%
-                height 100%
+                height 400px
       .msite_indexServicePolicy
         font-size .32rem
         /*background lightblue*/

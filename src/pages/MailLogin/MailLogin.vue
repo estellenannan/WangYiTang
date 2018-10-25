@@ -10,16 +10,17 @@
         <div class="texts">
 
           <div class="topTxt">
-            <input type="text"
+            <input type="text" @click="isMailNumber=false"
+                   v-model="mailAccount"
                    placeholder="邮箱账号">
           </div>
           <div class="line1"></div>
           <div class="middleTxt">
-            <input type="text"
+            <input type="text" maxlength="10"
                    placeholder="密码">
           </div>
           <div class="line2"></div>
-          <div class="tishiTxt active">请输入账号</div>
+          <div class="tishiTxt" :class="{active:isMailNumber}">请输入账号</div>
           <div class="bottomTxt">
             <div class="left" @click="$router.replace('/phoneregist')">注册账号</div>
             <div class="right">忘记密码</div>
@@ -29,13 +30,12 @@
         </div>
       </div>
 
-
-      <ButtonRed :redBtnName="'登录'"></ButtonRed>
-
+      <div style="width: 100%" @click="isMailNumber=!isMailNumber">
+        <ButtonRed :redBtnName="'登录'"></ButtonRed>
+      </div>
       <div style="width: 100%" @click="$router.replace('/profile')">
         <ButtonWhite :whiteBtnName="'其它登录方式'"></ButtonWhite>
       </div>
-
 
 
     </div>
@@ -46,7 +46,15 @@
 <script>
   export default {
     data() {
-      return {}
+      return {
+        mailAccount: '',//邮箱初始账号为空
+        isMailNumber: false//提示样式初始为false不显示
+      }
+    },
+    computed: {
+      isRightMail() {
+        return /^\w+((-\w+)|(\.\w+))*\@\w+((\.|-)\w+)*\.\w+$/.test(this.mailAccount);
+      }
     }
   }
 </script>
@@ -111,6 +119,9 @@
           flex-direction column
           width 461px
           margin-top .2rem
+          display none
+          &.active
+            display block
         .bottomTxt
           font-size .4rem
           color #7e8c8d

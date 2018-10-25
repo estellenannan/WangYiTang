@@ -10,5 +10,8 @@ export default {
   },
   [RECEIVE_THINGSDATA](state, {thingsData}) {
     state.thingsData = thingsData
+  },
+  [RECEIVE_CLASSIFYDATA](state, {classData}) {
+    state.classData = classData
   }
 }

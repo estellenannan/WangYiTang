@@ -20,12 +20,20 @@ export default {
       c && c()
     }
   },
-  //2，识物数据的异步请求
+  //2，识物页面数据的异步请求
   async getThingsData({commit}) {
     const result = await reqThingsData();
     if (result.code === 0) {
       const thingsData = result.data;
       commit(RECEIVE_THINGSDATA, {thingsData})
+    }
+  },
+  //3，分类页面数据的异步请求
+  async getClassData({commit}) {
+    const result = await reqClassifyData();
+    if (result.code === 0) {
+      const classData = result.data;
+      commit(RECEIVE_CLASSIFYDATA, {classData})
     }
   },
 }

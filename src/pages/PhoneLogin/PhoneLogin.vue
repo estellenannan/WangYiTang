@@ -10,32 +10,30 @@
         </div>
 
         <div class="texts">
-
           <div class="topTxt">
-            <input type="text"
-                   placeholder="请输入手机号">
+            <input type="tel" maxlength="11" placeholder="请输入手机号"
+                   @click="isPhoneNember=false"
+                   v-model="phoneNember">
           </div>
           <div class="line1"></div>
-          <div class="middleTxt">
-            <input type="text"
+          <div class="middleTxt" >
+            <input type="text" v-model="messageNember" maxlength="8"
                    placeholder="请输入短信验证码">
           </div>
-          <div class="btnTxt">获取验证码</div>
-
+          <div class="btnTxt"  @click="isRightPhone?isPhoneNember=false:isPhoneNember=true" >获取验证码</div>
           <div class="line2"></div>
-          <div class="tishiTxt active">请输入手机号</div>
-
+          <div class="tishiTxt" :class="{active:isPhoneNember}">请输入手机号</div>
           <div class="bottomTxt">
             <div class="left">遇到问题?</div>
             <div class="right">使用密码验证登录</div>
           </div>
-
-
         </div>
+
       </div>
 
-
-      <ButtonRed :redBtnName="'登录'"></ButtonRed>
+      <div style="width: 100%" @click="isPhoneNember=!isPhoneNember">
+        <ButtonRed :redBtnName="'登录'"></ButtonRed>
+      </div>
 
       <div style="width: 100%" @click="$router.replace('/profile')">
         <ButtonWhite :whiteBtnName="'其它登录方式'"></ButtonWhite>
@@ -50,7 +48,28 @@
 </template>
 
 <script>
-  export default {}
+  export default {
+/*{{isRightPhone?'请输入手机号':'手机号格式错误'}}*/
+    data() {
+      return {
+        // 手机号初始为空，利用v-model双向数据绑定获取input里面的手机号
+        phoneNember: '',
+        //点击登录和获取验证码时出现提示文本,样式变为active
+        isPhoneNember: false, //没有输入手机号时提示输入手机号，默认是false，样式不出现
+        messageNember:''
+      }
+    },
+    computed: {
+      isRightPhone() {
+        return /^1\d{10}$/.test(this.phoneNember);
+      },
+      isRightMesage() {
+        return /^\d{6}$/.test(this.messageNember);
+      },
+    },
+    methods: {}
+
+  }
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus" scoped>
@@ -59,6 +78,7 @@
     flex-direction column
     align-items center
     width 100%
+    overflow hidden
     input
       font-size .5rem
       outline none
@@ -126,6 +146,9 @@
           flex-direction column
           width 461px
           margin-top .2rem
+          display none
+          &.active
+            display block
         .bottomTxt
           font-size .4rem
           color #7e8c8d
