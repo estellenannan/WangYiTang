@@ -76,6 +76,7 @@
         align-items center
         width 100%
         height 3rem
+        margin-top: 2rem
         img
           width: 2.56rem;
           height: .85333rem
