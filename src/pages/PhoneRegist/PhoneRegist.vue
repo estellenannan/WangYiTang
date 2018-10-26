@@ -71,6 +71,7 @@
         color gray
         font-size .6rem
         margin-bottom 1.5rem
+        margin-top 2rem
       .texts
         display flex
         flex-direction column
@@ -134,4 +135,5 @@
     .txt
       font-size .5rem
       margin-top .2rem
+      color gray
 </style>

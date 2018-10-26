@@ -14,7 +14,7 @@
         </div>
 
         <!--11个词语长屏滑动-->
-        <div class="hdScorllX" >
+        <div class="hdScorllX">
           <div class="list">
             <div class="hdScorllItem" v-for="(headCate,index) in msiteData.headCateList" :key="index">
               <span :class="{active:current===index}" @click="currentIndex(index)">{{headCate.name}}</span>
@@ -30,7 +30,7 @@
           <div class="swiper-container">
             <div class="swiper-wrapper">
               <div class="swiper-slide" :key="index"
-              v-for="(foucsPic,index) in msiteData.focusList">
+                   v-for="(foucsPic,index) in msiteData.focusList">
                 <img :src="foucsPic.picUrl" alt="lunbo">
               </div>
             </div>
@@ -97,25 +97,25 @@
 
           <!--横屏滑动-->
           <div class="m_goodGrid">
-              <ul class="xinpin_wrap">
-                <li class="item" :key="index"
-                    v-for="( newItem,index) in msiteData.newItemList">
-                  <a href="javascript:;" class="good">
-                    <div class="hd">
-                      <img :src="newItem.listPicUrl" alt="img">
-                    </div>
-                    <div class="name">
-                      <span>{{newItem.name}}</span>
-                    </div>
-                    <div class="jiesao">
-                      <span>{{newItem.simpleDesc}}</span>
-                    </div>
-                    <div class="price">
-                      <span>￥{{newItem.retailPrice}}</span>
-                    </div>
-                  </a>
-                </li>
-              </ul>
+            <ul class="xinpin_wrap">
+              <li class="item" :key="index"
+                  v-for="( newItem,index) in msiteData.newItemList">
+                <a href="javascript:;" class="good">
+                  <div class="hd">
+                    <img :src="newItem.listPicUrl" alt="img">
+                  </div>
+                  <div class="name">
+                    <span>{{newItem.name}}</span>
+                  </div>
+                  <div class="jiesao">
+                    <span>{{newItem.simpleDesc}}</span>
+                  </div>
+                  <div class="price">
+                    <span>￥{{newItem.retailPrice}}</span>
+                  </div>
+                </a>
+              </li>
+            </ul>
 
           </div>
 
@@ -176,39 +176,36 @@
         <Split></Split>
 
         <!--居家好物-->
-       <div class="m_jujia">
-         <div class="jujia" :key="index"
-              v-for="(cateJujia,index) in msiteData.cateList">
-           <header class="hdju">
-             <span>{{cateJujia.name}}</span>
-           </header>
+        <div class="m_jujia">
+          <div class="jujia" :key="index"
+               v-for="(cateJujia,index) in msiteData.cateList">
+            <header class="hdju">
+              <span>{{cateJujia.name}}</span>
+            </header>
 
-           <div class="content">
-             <ul class="list">
-               <li class="item" :key="index"
-                   v-for="(ItemJujia,index) in cateJujia.itemList"
-               >
-                 <img :src="ItemJujia.listPicUrl" alt="img">
-                 <div class="top">
-                   <span>{{ItemJujia.simpleDesc}}</span>
-                 </div>
-                 <div class="middle">
-                   <span>{{ItemJujia.name}}</span>
-                 </div>
-                 <div class="bottom">
-                   <span>￥{{ItemJujia.retailPrice}}</span>
-                 </div>
-               </li>
-             </ul>
-           </div>
-           <div class="line">
-
-           </div>
-         </div>
-       </div>
+            <div class="content">
+              <ul class="list">
+                <li class="item" :key="index"
+                    v-for="(ItemJujia,index) in cateJujia.itemList">
+                  <img v-lazy="ItemJujia.listPicUrl" alt="img">
+                  <div class="top">
+                    <span>{{ItemJujia.simpleDesc}}</span>
+                  </div>
+                  <div class="middle">
+                    <span>{{ItemJujia.name}}</span>
+                  </div>
+                  <div class="bottom">
+                    <span>￥{{ItemJujia.retailPrice}}</span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="line"></div>
+          </div>
+        </div>
 
 
-        <Split></Split>
+        <!-- <Split></Split>-->
 
       </div>
 
@@ -221,39 +218,36 @@
 
   import Swiper from 'swiper';
   import BScroll from 'better-scroll';
-  import {mapState,mapGetters} from 'vuex'
+  import {mapState, mapGetters} from 'vuex'
 
   export default {
     data() {
       return {
-        current:0,//这是11个长词语的默认值
+        current: 0,//这是11个长词语的默认值
       }
     },
-    computed:{
+    computed: {
       ...mapState(['msiteData']),
       ...mapGetters(['spPinpai'])
     },
     mounted() {
-      this.$store.dispatch('getMsiteData',() =>{
-        this.$nextTick(()=>{
+      this.$store.dispatch('getMsiteData', () => {
+        this.$nextTick(() => {
           let BScrollCiyu = new BScroll('.hdScorllX', {
             click: true,//会派发点击事件 词语
-            scrollX:true
+            scrollX: true
           });
         })
       });
 
 
-
-
-
     },
-    watch:{
-      msiteData(value){
-        this.$nextTick(()=>{
+    watch: {
+      msiteData(value) {
+        this.$nextTick(() => {
           let xinpinWrap = new BScroll('.m_goodGrid', {
             click: true,//会派发点击事件 新品首发
-            scrollX:true
+            scrollX: true
           });
           let lunBoSwiper = new Swiper('.swiper-container', {
             loop: true, // 循环模式选项  //轮播图
@@ -263,15 +257,15 @@
           });
           let zhuantiWrap = new BScroll('.zhuanti_wrap', {
             click: true,//会派发点击事件 专题
-            scrollX:true
+            scrollX: true
           });
         })
 
       }
     },
-    methods:{
-      currentIndex(index){
-        this.current=index;//词语的点击事件
+    methods: {
+      currentIndex(index) {
+        this.current = index;//词语的点击事件
       }
 
     }
@@ -341,6 +335,7 @@
             justify-content space-between
             align-items center
             flex-shrink 0
+            color gray
             span
               /*width 1.1rem*/
               text-align center
@@ -440,7 +435,6 @@
                   width 100%
                   height 100%
 
-
       .m_xinpin
         width 100%
         .xinpin_hd
@@ -526,7 +520,6 @@
         padding .4rem .53333rem .4rem .74667rem
         margin-bottom .26667rem
         height 5.06667rem;
-        /*background: #fff;*/
         box-sizing border-box
         display flex
         .left
@@ -563,6 +556,7 @@
               background #444
           .left2
             font-size .4rem
+            color gray
         .right
           background: #fff
           width 4.26667rem
@@ -610,7 +604,6 @@
 
       .m_jujia
         margin-bottom .3rem
-        /*border-bottom .3rem  solid lightgrey*/
         .jujia
           width 100%
           .hdju
@@ -619,12 +612,12 @@
             font-size .5rem
             text-align center
             background #ffffff
+            width 100%
           .content
             width 100%
             .list
               width 100%
               clearFix()
-              height 520px
               .item
                 width 50%
                 padding-left .2rem
@@ -649,6 +642,7 @@
                   color #9F8A60
                 .middle
                   font-size .45rem
+                  color gray
                   margin-bottom .1rem
                   overflow hidden
                   white-space nowrap
@@ -659,7 +653,7 @@
                   margin-bottom .1rem
 
           .line
-            height  20px
+            height 20px
             background-color #f4f4f4
 
 </style>
