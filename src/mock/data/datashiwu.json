@@ -531,11 +531,8 @@
       "desc": "你会选择怎么度过",
       "id": 192,
       "participantAvatar": [
-        null,
         "http://yanxuan.nosdn.127.net/76f27e3e1319cea0f0bd220effbbd4c2",
-        "https://yanxuan.nosdn.127.net/edb7f81b6262124a02de2a18c1da772c.jpg",
-        null,
-        null
+        "https://yanxuan.nosdn.127.net/edb7f81b6262124a02de2a18c1da772c.jpg"
       ],
       "participantNum": "7",
       "title": "如果生命只剩一天",
@@ -545,7 +542,6 @@
       "desc": "说说为什么用这一张",
       "id": 189,
       "participantAvatar": [
-        null,
         "http://yanxuan.nosdn.127.net/76f27e3e1319cea0f0bd220effbbd4c2",
         "https://yanxuan.nosdn.127.net/56c869bd1efc467d34bb16dff6751b93.jpg",
         "https://yanxuan.nosdn.127.net/e462daf8fece47aed8cfb8a8d0af8fb8.jpg",
@@ -559,10 +555,8 @@
       "desc": "嘿，夏天你想喝什么",
       "id": 190,
       "participantAvatar": [
-        null,
         "https://yanxuan.nosdn.127.net/7b43828bf9c1cb0d7d5acf538d8c4b08.jpg",
-        "https://yanxuan.nosdn.127.net/0e6cc440246db5f3ea2e908c16554ec1",
-        null
+        "https://yanxuan.nosdn.127.net/0e6cc440246db5f3ea2e908c16554ec1"
       ],
       "participantNum": "5",
       "title": "夏日饮品",

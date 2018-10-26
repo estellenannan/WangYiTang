@@ -21,11 +21,12 @@ export default {
     }
   },
   //2，识物页面数据的异步请求
-  async getThingsData({commit}) {
+  async getThingsData({commit},cb) {
     const result = await reqThingsData();
     if (result.code === 0) {
       const thingsData = result.data;
-      commit(RECEIVE_THINGSDATA, {thingsData})
+      commit(RECEIVE_THINGSDATA, {thingsData});
+      cb && cb()
     }
   },
   //3，分类页面数据的异步请求

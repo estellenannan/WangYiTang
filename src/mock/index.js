@@ -18,7 +18,7 @@ Mock.mock('/classifydata', {
 });
 Mock.mock('/thingsdata', {
   code: 0,
-  data: ThingsData.categoryL1List
+  data: ThingsData
 });
 
 
