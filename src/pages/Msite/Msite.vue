@@ -271,7 +271,6 @@
     }
 
   }
-  /*#b4282d*/
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus" scoped>
