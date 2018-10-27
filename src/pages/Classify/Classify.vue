@@ -8,6 +8,7 @@
           搜索商品共16943款好物
         </div>
       </div>
+
       <div class="wrapUl">
         <ul class="list">
           <li class="item" :key="index" @click="currentIndex(index)"
@@ -17,22 +18,32 @@
           </li>
         </ul>
       </div>
+
       <div class="line"></div>
+
       <div class="rightWrap">
-        <div class="imgWrap">
-          <img :src="classData.currentCategory.bannerUrl" alt="img"
-               style="height: 192px; width: 528px">
+
+        <div class="imgArr" v-show="current === index"
+             v-for="(category,index) in classData.categoryL1List" :key="index">
+          <div class="imgWrap">
+            <img :src="category.bannerUrl" alt="img"
+                 style="height: 192px; width: 528px">
+          </div>
+          <div class="ulWrap">
+            <ul class="list" >
+              <li class="item" :key="index"
+                  v-for="(categories,index) in category.subCateList">
+                <img :src="categories.wapBannerUrl" alt="img"
+                     style="height: 144px; width: 144px">
+                <div class="text">{{categories.frontName}}</div>
+              </li>
+            </ul>
+          </div>
+
         </div>
-        <div class="ulWrap">
-          <ul class="list">
-            <li class="item" :key="index"
-                v-for="(categories,index) in classData.categoryL2List">
-              <img :src="categories.wapBannerUrl" alt="img"
-                   style="height: 144px; width: 144px">
-              <div class="text">{{categories.frontName}}</div>
-            </li>
-          </ul>
-        </div>
+
+
+
 
       </div>
     </div>
@@ -46,7 +57,8 @@
   export default {
     data() {
       return {
-        current: 0//点击li切换样式
+        current: 0,//点击li切换样式
+      /*  subCateList:[]*/
       }
     },
     methods: {
@@ -63,7 +75,7 @@
   }
 </script>
 
-<style lang="stylus" rel="stylesheet/stylus">
+<style lang="stylus" rel="stylesheet/stylus" scoped>
   @import "../../common/stylus/mixins.styl"
   .wrapCllass
     width 100%
@@ -139,13 +151,14 @@
           .item
             width 144px
             float left
-            height 211px
+            height 257px
             margin-right .4rem
             .text
               width 144px
               font-size .35rem
               text-align center
               color grey
+
 
 
 </style>

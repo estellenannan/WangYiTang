@@ -9,7 +9,8 @@ import VueRouter from 'vue-router'
 import Things from '../pages/Things/Things.vue'
 import Classify from '../pages/Classify/Classify.vue'
 import ShopCart from '../pages/ShopCart/ShopCart.vue'
-import Profile from '../pages/Profile/Profile.vue'*/
+import Profile from '../pages/Profile/Profile.vue'
+import maskPage from '../pages/maskPage/maskPage.vue'*/
 
 /*进行项目的优化
 * 单独打包，按需执行咧
@@ -20,11 +21,13 @@ const Things = () => import('../pages/Things/Things.vue');
 const Classify = () => import('../pages/Classify/Classify.vue');
 const ShopCart = () => import('../pages/ShopCart/ShopCart.vue');
 const Profile = () => import('../pages/Profile/Profile.vue');
+const maskPage = () => import('../pages/maskPage/maskPage.vue');
 
 import PhoneLogin from '../pages/PhoneLogin/PhoneLogin.vue';
 import PhoneRegist from '../pages/PhoneRegist/PhoneRegist.vue';
 import MailLogin from '../pages/MailLogin/MailLogin.vue';
 import MailRegist from '../pages/MailRegist/MailRegist.vue';
+
 
 
 Vue.use(VueRouter);
@@ -65,6 +68,10 @@ export default new VueRouter({
       component: Profile,
     },
     {
+      path: '/maskpage',
+      component: maskPage,
+    },
+    {
       path: '/phonelogin',
       component: PhoneLogin,
     },
@@ -82,7 +89,7 @@ export default new VueRouter({
     },
     {//默认的根路由为首页路由
       path: '/',
-      redirect: '/msite'
+      redirect: '/maskpage'
     }
   ]
 })

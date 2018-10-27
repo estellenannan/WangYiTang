@@ -6,6 +6,7 @@
 * */
 export default {
   spPinpai(state) {
+    if(!state.msiteData.tagList) return ;
     return state.msiteData.tagList.splice(0,4)
   },
 }

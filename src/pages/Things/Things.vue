@@ -39,8 +39,8 @@
 
           <div class="w_content">
             <!--前三张图片w_imgs和后三张样式一样 第二张和第三图片一样-->
-            <div class="w_imgs">
-              <div class="topImg">
+            <div class="w_imgs" v-if="thingsData.recommendOne">
+              <div class="topImg" v-if="thingsData.recommendOne">
                 <img :src="thingsData.recommendOne.picUrl" alt="">
                 <div class="twoTxt">
                   <div class="txt1">
@@ -52,7 +52,7 @@
               </div>
               <div class="middleImg">
                 <div class="left">
-                  <div class="avatar">
+                  <div class="avatar" v-if="thingsData.recommendThree">
                     <img style="width: 46px;height: 46px;"
                          :src="thingsData.recommendThree.avatar" alt="img">
                     <span>{{thingsData.recommendThree.nickname}}</span>
@@ -66,7 +66,7 @@
                 </div>
               </div>
               <div class="middleImg">
-                <div class="left">
+                <div class="left"  v-if="thingsData.recommendTwo">
                   <div class="avatar">
                     <img style="width: 46px;height: 46px;"
                          :src="thingsData.recommendTwo.avatar" alt="img">
@@ -75,7 +75,7 @@
                   <div class="mTxt">{{thingsData.recommendTwo.title}}</div>
                   <div class="bTxt">{{thingsData.recommendTwo.subTitle}}</div>
                 </div>
-                <div class="right">
+                <div class="right" v-if="thingsData.recommendTwo">
                   <img style="width: 280px;height: 272px;"
                        :src="thingsData.recommendTwo.picUrl" alt="img">
                 </div>
@@ -120,7 +120,7 @@
                   <div class="title">今日话题</div>
                   <div class="name">{{shiD.title}}</div>
                   <div class="desc">{{shiD.desc}}</div>
-                  <div class="avatars">
+                  <div class="avatars" v-if="shiD.participantAvatar.length>0">
                     <img style="width: 48px;height: 48px;border-radius: 50%"
                          :src="shiD.participantAvatar[0]" alt="img">
                     <img style="width: 48px;height: 48px; border-radius: 50%"
@@ -142,7 +142,7 @@
 
           <div class="w_content">
             <div class="w_imgs">
-              <div class="topImg">
+              <div class="topImg"  v-if="thingsData.zhenOne">
                 <img :src="thingsData.zhenOne.picUrl" alt="img">
                 <div class="twoTxt">
                   <div class="txt1">
@@ -152,7 +152,7 @@
                 </div>
               </div>
 
-              <div class="middleImg">
+              <div class="middleImg" v-if="thingsData.zhenThree">
                 <div class="left">
                   <div class="mTxt">{{thingsData.zhenThree.title}}</div>
                   <div class="bTxt">{{thingsData.zhenThree.subTitle}}</div>
@@ -186,7 +186,7 @@
           <img style="width: 100%;height: 1000px"
                src="./images/look.jpg" alt="img">
           <div class="content">
-            <div class="avatar">
+            <div class="avatar" v-if="thingsData.yxLook">
               <img style="width: 46px;height: 46px;"
                    :src="thingsData.yxLook.avatar" alt="img">
               <span>{{thingsData.yxLook.nickname}}</span>
